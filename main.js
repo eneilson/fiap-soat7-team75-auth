@@ -2,7 +2,7 @@ const authUser  = require('./src/auth-user');
 const createUser  = require('./src/create-user');
 
 exports.handler = async ({ body, method }) => {
-  const data = JSON.parse(body);
+  const data = typeof body === 'object'? body : JSON.parse(body);
 
   switch (method) {
     case'POST': 
@@ -10,7 +10,7 @@ exports.handler = async ({ body, method }) => {
     case'PUT': 
       return createUser(data);
     default: 
-      return { fail: 'unknown method' };
+      return { fail: 'unknown method', body };
   }
 };
 
