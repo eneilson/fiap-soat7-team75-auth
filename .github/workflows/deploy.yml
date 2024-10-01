@@ -14,7 +14,7 @@ permissions:
   
 jobs:
   deploy-auth:
-    name: deploy lambda function
+    name: deploy auth-fn
     runs-on: ubuntu-latest
     environment: production
 
@@ -25,7 +25,7 @@ jobs:
       - name: Prepare auth lambda
         uses: actions/setup-node@v4
       - run: npm ci
-      - run: zip -r ../authenticator.zip node_modules main.js src
+      - run: zip -r authenticator.zip node_modules main.js src
   
       - name: Configure AWS user credentials
         uses: aws-actions/configure-aws-credentials@v4
