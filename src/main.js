@@ -1,8 +1,7 @@
 import { authUser } from './auth-user';
 import { createUser } from './create-user';
 
-
-export const handler = async ({ body, method }: { body: string, method: string }) => {
+export const handler = async ({ body, method }) => {
   const data = JSON.parse(body);
 
   switch (method) {
@@ -10,8 +9,6 @@ export const handler = async ({ body, method }: { body: string, method: string }
       return authUser(data);
     case'PUT': 
       return createUser(data);
-
   }
-
 };
 

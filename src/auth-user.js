@@ -1,7 +1,7 @@
 import { AuthenticationDetails, CognitoUser } from 'amazon-cognito-identity-js';
 import { APP_USER_POOL } from './config';
 
-export const authUser = ({ username, password }: {username: string, password: string}) => {
+export const authUser = ({ username, password }) => {
 
   const loginData = new AuthenticationDetails({
     Username: username,
