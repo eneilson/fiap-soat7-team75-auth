@@ -9,6 +9,8 @@ exports.handler = async ({ body, method }) => {
       return authUser(data);
     case'PUT': 
       return createUser(data);
+    default: 
+      return { fail: 'unknown method' };
   }
 };
 
