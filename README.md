@@ -1,1 +1,1 @@
-# -fiap-soat7-team75-auth
+# fiap-soat7-team75-auth
