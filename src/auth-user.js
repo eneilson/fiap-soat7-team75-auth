@@ -1,7 +1,7 @@
 const { AuthenticationDetails, CognitoUser }  = require('amazon-cognito-identity-js');
 const { APP_USER_POOL }  = require('./config');
 
-export const authUser = ({ username, password }) => {
+exports.authUser = ({ username, password }) => {
 
   const loginData = new AuthenticationDetails({
     Username: username,

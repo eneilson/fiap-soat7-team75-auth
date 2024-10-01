@@ -1,7 +1,7 @@
 const authUser  = require('./auth-user');
 const createUser  = require('./create-user');
 
-export const handler = async ({ body, method }) => {
+exports.handler = async ({ body, method }) => {
   const data = JSON.parse(body);
 
   switch (method) {
