@@ -1,5 +1,5 @@
-import { AuthenticationDetails, CognitoUser } from 'amazon-cognito-identity-js';
-import { APP_USER_POOL } from './config';
+const { AuthenticationDetails, CognitoUser }  = require('amazon-cognito-identity-js');
+const { APP_USER_POOL }  = require('./config');
 
 export const authUser = ({ username, password }) => {
 

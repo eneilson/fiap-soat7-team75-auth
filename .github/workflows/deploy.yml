@@ -1,0 +1,34 @@
+name: FIAP-Soat7-Team75 Auth CD
+
+on:
+  pull_request:
+    branches: [main]
+    types: [opened, synchronize, closed]
+  push: # IMPORTANT: only to tests
+    branches:
+      - tcg-v3 
+
+permissions:
+  id-token: write
+  contents: write
+  
+jobs:
+  deploy_zip:
+    name: deploy lambda function
+    runs-on: ubuntu-latest
+    environment: production
+
+    steps:
+      - name: checkout source code
+        uses: actions/checkout@v3
+      
+      - name: Prepare auth lambda
+        run: cd src && zip -r ../authenticator.zip ./*
+  
+      - name: Configure AWS user credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-session-name: GitHub_to_AWS_via_FederatedOIDC
+          role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
+          aws-region: ${{ vars.AWS_REGION }}
+      - run: aws lambda update-function-code --function-name=t75-authenticator --zip-file=fileb://authenticator.zip
