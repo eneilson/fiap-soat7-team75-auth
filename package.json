@@ -1,0 +1,11 @@
+{
+  "name": "t75-auth-cognito-lambda",
+  "version": "0.0.1-beta",
+  "scripts": {
+    "start": "node src/main.js"
+  },
+  "dependencies": {
+    "amazon-cognito-identity-js": "^6.3.12",
+    "aws-sdk": "^2.1691.0"
+  }
+}
