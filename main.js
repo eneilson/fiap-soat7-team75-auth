@@ -10,7 +10,7 @@ exports.handler = async ({ body, method }) => {
     case'PUT': 
       return createUser(data);
     default: 
-      return { fail: 'unknown method', body };
+      return { fail: 'unknown method', method };
   }
 };
 
