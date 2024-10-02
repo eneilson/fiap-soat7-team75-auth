@@ -6,11 +6,11 @@ exports.handler = async ({ body, method }) => {
 
   switch (method) {
     case'POST': 
-      return authUser(data);
+      return JSON.stringify(await authUser(data));
     case'PUT': 
-      return createUser(data);
+      return JSON.stringify(await createUser(data));
     default: 
-      return { fail: 'unknown method', body };
+      return JSON.stringify({ fail: 'unknown method', body });
   }
 };
 
